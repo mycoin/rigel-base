@@ -1,0 +1,37 @@
+{
+  "name": "rigel-base",
+  "version": "0.0.1",
+  "description": "rigel-base",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "typings/index.d.ts",
+  "scripts": {
+    "dev": "bundle-scripts dev",
+    "build": "bundle-scripts build",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mycoin/rigel-base.git"
+  },
+  "dependencies": {
+    "events": "^3.3.0",
+    "js-middleware": "^0.3.1",
+    "query-string": "^7.0.1",
+    "queue": "^6.0.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.10",
+    "@babel/register": "^7.18.9",
+    "babel-eslint": "^10.1.0",
+    "bundle-scripts": "^0.3.x",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^6.0.0",
+    "eslint": "^7.3.1",
+    "eslint-config-takla": "^0.0.x",
+    "mocha": "^9.0.3",
+    "typescript": "^4.3.5"
+  },
+  "author": "MYCOIN",
+  "license": "ISC"
+}
