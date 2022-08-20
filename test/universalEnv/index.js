@@ -1,0 +1,15 @@
+const assert = require('assert')
+const { universalEnv } = require('../..')
+
+it('universalEnv types', () => {
+  assert(typeof universalEnv.isWeb === 'boolean')
+  assert(typeof universalEnv.isNode === 'boolean')
+  assert(typeof universalEnv.isWeex === 'boolean')
+  assert(typeof universalEnv.isKraken === 'boolean')
+  assert(typeof universalEnv.isMiniApp === 'boolean')
+  assert(typeof universalEnv.isWeChatMiniProgram === 'boolean')
+  assert(typeof universalEnv.isQuickApp === 'boolean')
+  assert(typeof universalEnv.isDevelopment === 'boolean')
+  assert(typeof universalEnv.isDebugger === 'boolean')
+  assert(typeof universalEnv.parameters === 'object')
+})
