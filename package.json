@@ -1,7 +1,7 @@
 {
   "name": "rigel-base",
   "version": "0.0.4",
-  "description": "rigel-base",
+  "description": "rigel base utils.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "typings": "typings/index.d.ts",
@@ -11,6 +11,12 @@
     "test": "mocha --recursive",
     "prepublishOnly": "npm run build && npm test"
   },
+  "files": [
+    "dist",
+    "typings",
+    "package.json",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/mycoin/rigel-base.git"
