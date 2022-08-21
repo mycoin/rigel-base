@@ -5,16 +5,21 @@
  *
  * @param {...Function} funcs The functions to compose.
  * @returns {Function} A function obtained by composing the argument functions
- * from right to left. For example, compose(f, g, h) is identical to doing
+ * from right to left.
+ * ```javascript
+ * // For example:
+ * compose(f, g, h)
+ * // is identical to doing
  * (...args) => f(g(h(...args))).
+ * ```
  */
 const compose = (...funcs: Function[]): Function => {
   if (funcs.length === 0) {
     return (arg: any) => arg
   }
-  for (var i = 0; i < funcs.length; i++) {
+  for (let i = 0; i < funcs.length; i++) {
     if (typeof funcs[i] !== 'function') {
-      throw new Error('One of the params of compose is not a function');
+      throw new Error('One of the params of compose is not a function')
     }
   }
   if (funcs.length === 1) {

@@ -7,9 +7,7 @@
   "env": {
     "browser": true
   },
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint"],
   "root": true,
   "extends": "takla"
 }

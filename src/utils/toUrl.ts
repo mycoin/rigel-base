@@ -3,11 +3,11 @@
 import queryString, { StringifyOptions, StringifiableRecord, UrlObject } from 'query-string'
 
 interface XStringifyOptions extends StringifyOptions {
-  skipNull: boolean,
-  skipEmptyString: boolean,
-  sort: false,
+  skipNull: boolean
+  skipEmptyString: boolean
+  sort: false
 
-  fragmentIdentifier?: string,
+  fragmentIdentifier?: string
 }
 
 const defaultOptions = {
@@ -17,10 +17,10 @@ const defaultOptions = {
 }
 
 const toUrl = (url: string, queryParams: StringifiableRecord, options?: XStringifyOptions): string => {
-  const { fragmentIdentifier, ...otherOptions } = ({
+  const { fragmentIdentifier, ...otherOptions } = {
     ...defaultOptions,
     ...options,
-  })
+  }
 
   const urlObject: UrlObject = {
     url: url || '',
@@ -31,7 +31,4 @@ const toUrl = (url: string, queryParams: StringifiableRecord, options?: XStringi
 }
 
 export default toUrl
-export {
-  XStringifyOptions,
-  defaultOptions,
-}
+export { XStringifyOptions, defaultOptions }

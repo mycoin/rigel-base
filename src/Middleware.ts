@@ -1,4 +1,4 @@
-import compose from "./utils/compose";
+import compose from './utils/compose'
 
 const middlewareManagerHash: Middleware[] = []
 
@@ -146,9 +146,11 @@ const middlewareManagerHash: Middleware[] = []
  *
  */
 class Middleware {
-  public _target: any;
-  public _methods: any;
-  public _methodMiddlewares: any;
+  public _target: any
+
+  public _methods: any
+
+  public _methodMiddlewares: any
 
   /**
    * @param {object} target The target object.
@@ -188,8 +190,8 @@ class Middleware {
         if (this._methodMiddlewares[methodName] === undefined) {
           this._methodMiddlewares[methodName] = []
         }
-        middlewares.forEach(middleware =>
-          typeof middleware === 'function' && this._methodMiddlewares[methodName].push(middleware(this._target))
+        middlewares.forEach(
+          (middleware) => typeof middleware === 'function' && this._methodMiddlewares[methodName].push(middleware(this._target)),
         )
         this._target[methodName] = compose(...this._methodMiddlewares[methodName])(method.bind(this._target))
       }
@@ -210,9 +212,9 @@ class Middleware {
         // A middleware object can specify target functions within middlewareMethods (Array).
         // e.g. obj.middlewareMethods = ['method1', 'method2'];
         // only method1 and method2 will be the target function.
-        typeof arg === 'object' &&
-          (arg.middlewareMethods ||
-            (Object.keys(arg).length ? Object.keys(arg) : Object.getOwnPropertyNames(Object.getPrototypeOf(arg)))
+        typeof arg === 'object'
+          && (
+            arg.middlewareMethods || (Object.keys(arg).length ? Object.keys(arg) : Object.getOwnPropertyNames(Object.getPrototypeOf(arg)))
           ).forEach((key: string) => {
             typeof arg[key] === 'function' && this._methodIsValid(key) && this._applyToMethod(key, arg[key].bind(arg))
           })

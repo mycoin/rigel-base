@@ -18,9 +18,6 @@ describe('utils.format(stringTpl, dataMap)', () => {
   })
   it('should replace well', () => {
     const normal = '<a href="wd={:word}">{name}</a>'
-    assert.equal(
-      utils.format(normal, dataMap),
-      '<a href="wd=%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4">&lt;em&gt;X&lt;/em&gt;</a>',
-    )
+    assert.equal(utils.format(normal, dataMap), '<a href="wd=%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4">&lt;em&gt;X&lt;/em&gt;</a>')
   })
 })

@@ -1,13 +1,3 @@
-/* eslint-disable prefer-rest-params */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-cond-assign */
-/* eslint-disable no-plusplus */
-/**
- * 
- * @param mix 
- * @returns 
- */
 function toVal(mix: any) {
   let k
   let y
@@ -42,7 +32,7 @@ function classNames(): string {
   let x
   let str = ''
   while (i < arguments.length) {
-    if (x = toVal(arguments[i++])) {
+    if ((x = toVal(arguments[i++]))) {
       str && (str += ' ')
       str += x
     }

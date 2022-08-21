@@ -10,7 +10,9 @@ it('utils.isMatches(Regex, string)', () => {
   assert(!utils.isMatches([1, 2, 3], 4))
 
   assert(utils.isMatches([1, 2, 3], 2))
-  assert(utils.isMatches(function () {
-    return true
-  }, 4))
+  assert(
+    utils.isMatches(function () {
+      return true
+    }, 4),
+  )
 })

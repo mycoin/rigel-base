@@ -4,9 +4,9 @@ import queryString, { StringifyOptions } from 'query-string'
 import { defaultOptions } from './toUrl'
 
 interface XStringifyOptions extends StringifyOptions {
-  skipNull: boolean,
-  skipEmptyString: boolean,
-  sort: false,
+  skipNull: boolean
+  skipEmptyString: boolean
+  sort: false
 }
 
 /**
@@ -20,6 +20,4 @@ const toParam = (queryParams: Record<string, any>, options?: XStringifyOptions):
 }
 
 export default toParam
-export {
-  XStringifyOptions,
-}
+export { XStringifyOptions }

@@ -1,9 +1,11 @@
-
 interface DeferredPromise<ValueType> extends Promise<ValueType> {
   resolve(value: ValueType | PromiseLike<ValueType>): void
-  reject(reason?: any): void;
+  reject(reason?: any): void
 
-  done<TResult1 = ValueType, TResult2 = never>(onfulfilled?: ((value: ValueType) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): Promise<TResult1 | TResult2>;
+  done<TResult1 = ValueType, TResult2 = never>(
+    onfulfilled?: ((value: ValueType) => TResult1 | PromiseLike<TResult1>) | undefined | null,
+    onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null,
+  ): Promise<TResult1 | TResult2>
 
   /**
    * Attaches a callback for only the rejection of the Promise.
@@ -11,7 +13,7 @@ interface DeferredPromise<ValueType> extends Promise<ValueType> {
    * @param onrejected The callback to execute when the Promise is rejected.
    * @returns A Promise for the completion of the callback.
    */
-  fail<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): Promise<ValueType | TResult>;
+  fail<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): Promise<ValueType | TResult>
 }
 
 /**
@@ -34,14 +36,14 @@ interface DeferredPromise<ValueType> extends Promise<ValueType> {
  * @returns
  */
 const Deferred = (): DeferredPromise<any> => {
-  let outResolve = null;
-  let outReject = null;
+  let outResolve = null
+  let outReject = null
 
   // @ts-ignore
   const promise: DeferredPromise<any> = new Promise((resolve, reject) => {
-    outResolve = resolve;
-    outReject = reject;
-  });
+    outResolve = resolve
+    outReject = reject
+  })
 
   promise.resolve = outResolve
   promise.reject = outReject
@@ -50,7 +52,7 @@ const Deferred = (): DeferredPromise<any> => {
   promise.done = promise.then.bind(promise)
   promise.fail = promise.catch.bind(promise)
 
-  return promise;
+  return promise
 }
 
 export default Deferred

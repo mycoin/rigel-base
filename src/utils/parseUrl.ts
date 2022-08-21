@@ -9,9 +9,9 @@ const defaultParseOptions = {
 }
 
 interface XParseOptions extends ParseOptions {
-  parseNumbers: true,
-  parseBooleans: true,
-  parseFragmentIdentifier: true,
+  parseNumbers: true
+  parseBooleans: true
+  parseFragmentIdentifier: true
 }
 
 /**
@@ -27,6 +27,4 @@ const parseUrl = (url: string, options?: XParseOptions): ParsedUrl => {
 }
 
 export default parseUrl
-export {
-  XParseOptions,
-}
+export { XParseOptions }

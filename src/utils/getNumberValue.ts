@@ -1,8 +1,8 @@
 interface GetNumberValueOption {
-  min?: number;
-  max?: number;
-  roundUp?: boolean,
-  precision?: number;
+  min?: number
+  max?: number
+  roundUp?: boolean
+  precision?: number
 }
 
 const defaultOptions = {
@@ -37,6 +37,4 @@ const getNumberValue = (value: any, opts?: GetNumberValueOption): number | null 
 }
 
 export default getNumberValue
-export {
-  GetNumberValueOption,
-}
+export { GetNumberValueOption }

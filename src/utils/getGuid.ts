@@ -7,7 +7,7 @@ let guidCache = Date.now()
 
 const getGuid = (operator: string | true) => {
   if (operator && typeof operator === 'string') {
-    return operator + (--guidCache)
+    return operator + --guidCache
   } else if (operator === true) {
     return createCache()
   } else {
@@ -16,8 +16,8 @@ const getGuid = (operator: string | true) => {
 }
 
 const createCache = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (code) => {
-  const randomCode = Math.random() * 16 | 0
-  const value = code === 'x' ? randomCode : (randomCode & 0x3 | 0x8)
+  const randomCode = (Math.random() * 16) | 0
+  const value = code === 'x' ? randomCode : (randomCode & 0x3) | 0x8
   return value.toString(16)
 })
 

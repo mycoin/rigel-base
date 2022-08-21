@@ -4,7 +4,7 @@ const Person = require('./person/Person')
 const WalkMiddleware = require('./middlewares/WalkMiddleware')
 const { PersonMiddleware1, PersonMiddleware2, PersonMiddleware3 } = require('./middlewares/PersonMiddleware')
 
-describe('Middleware: ', () => {
+describe('Middleware:', () => {
   let person
   let middlewareManager
 
@@ -18,7 +18,7 @@ describe('Middleware: ', () => {
     middlewareManager = null
   })
 
-  describe('middleware function: ', () => {
+  describe('middleware function:', () => {
     it('should apply the middlweare function', () => {
       middlewareManager.use('walk', WalkMiddleware)
       const newStep = 3
@@ -27,7 +27,7 @@ describe('Middleware: ', () => {
     })
   })
 
-  describe('middleware object: ', () => {
+  describe('middleware object:', () => {
     it('should apply the middlweare object', () => {
       middlewareManager.use(PersonMiddleware1)
       const newStep = 3

@@ -2,11 +2,11 @@
 import parseParam from '../utils/parseParam'
 
 declare global {
-  const callNative: any;
-  const my: any;
-  const wx: any;
-  const WXEnvironment: any;
-  const __kraken__: any;
+  const callNative: any
+  const my: any
+  const wx: any
+  const WXEnvironment: any
+  const __kraken__: any
 }
 
 const isUndef = (type: string) => {
@@ -21,9 +21,7 @@ const isMiniApp = !isUndef(typeof my) && my !== null && !isUndef(typeof my.alert
 
 // In wechat mini program, wx.login is a function
 // In wechat mini propgram webview, there is no wx.login, but exist wx.miniProgram
-const isWeChatMiniProgram = !isUndef(typeof wx)
-  && wx !== null
-  && (!isUndef(typeof wx.login) || !isUndef(typeof wx.miniProgram))
+const isWeChatMiniProgram = !isUndef(typeof wx) && wx !== null && (!isUndef(typeof wx.login) || !isUndef(typeof wx.miniProgram))
 
 const isQuickApp = !isUndef(typeof global)
   && global !== null
@@ -45,26 +43,20 @@ const browserVersion = (regex: RegExp) => {
 }
 
 // others
-const isDevelopment = (isNode && /development/.test(process.env.NODE_ENV))
-const isDebugger = (isWeb && /_debugMode_/i.test(window.location.search))
+const isDevelopment = isNode && /development/.test(process.env.NODE_ENV)
+const isDebugger = isWeb && /_debugMode_/i.test(window.location.search)
 
 // parameterMap
-const parameters = isWeb
-  ? parseParam(window.location.search)
-  : {}
+const parameters = isWeb ? parseParam(window.location.search) : {}
 
 const isAndroid = userAgentMatch(/Android/i)
 const isIos = userAgentMatch(/iphone|ipad|ipod|ios/i)
 const isWeiXin = userAgentMatch(/MicroMessenger/i)
 const isChrome = browserVersion(/Chrome\/(\d+)/i)
-const isIE = browserVersion(/MSIE (\d+)/)
-  || browserVersion(/Trident\/.*; rv:(\d+)/)
-  || browserVersion(/(Edge\/\d+)/)
+const isIE = browserVersion(/MSIE (\d+)/) || browserVersion(/Trident\/.*; rv:(\d+)/) || browserVersion(/(Edge\/\d+)/)
 
 const isFirefox = browserVersion(/Firefox\/(\d+)/)
-const isSafari = (browserVersion(/Chrome\/(\d+)/) || browserVersion(/(Edge\/\d+)/))
-  ? null
-  : browserVersion(/Version\/([\d.]+)( Mobile\/.+?)? Safari\/\d+/)
+const isSafari = browserVersion(/Chrome\/(\d+)/) || browserVersion(/(Edge\/\d+)/) ? null : browserVersion(/Version\/([\d.]+)( Mobile\/.+?)? Safari\/\d+/)
 
 const isWindows = /^Win/i.test(platform)
 const isMac = /^Mac/i.test(platform)
