@@ -8,18 +8,12 @@ const defaultParseOptions = {
   parseFragmentIdentifier: true,
 }
 
-interface XParseOptions extends ParseOptions {
-  parseNumbers: true
-  parseBooleans: true
-  parseFragmentIdentifier: true
-}
-
 /**
  * Extract the URL and the query string as an object.
  *
  * @param url - The URL to parse.
  */
-const parseUrl = (url: string, options?: XParseOptions): ParsedUrl => {
+const parseUrl = (url: string, options?: ParseOptions): ParsedUrl => {
   return queryString.parseUrl(url, {
     ...defaultParseOptions,
     ...options,
@@ -27,4 +21,3 @@ const parseUrl = (url: string, options?: XParseOptions): ParsedUrl => {
 }
 
 export default parseUrl
-export { XParseOptions }

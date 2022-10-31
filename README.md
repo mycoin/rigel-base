@@ -15,9 +15,9 @@
 - `hashCode`: (source: string) => number;
 - `isMatches`: (handle: Function | RegExp | any[], params: any) => boolean;
 - `observe`: (object: any, keyName: string, callback: (prev: any, next: any) => void) => void;
-- `parseParam`: (query: string, options?: XParseOptions) => import("query-string").ParsedQuery<string>;
-- `parseUrl`: (url: string, options?: XParseOptions) => import("query-string").ParsedUrl;
+- `parseParam`: (query: string, options?: ParseOptions) => import("query-string").ParsedQuery<string>;
+- `parseUrl`: (url: string, options?: ParseOptions) => import("query-string").ParsedUrl;
 - `throwAsync`: (error: string | Error) => void;
-- `toParam`: (queryParams: Record<string, any>, options?: import("./parseUrl").XParseOptions) => string;
-- `toUrl`: (url: string, queryParams: StringifiableRecord, options?: .XParseOptions) => string;
+- `toParam`: (queryParams: Record<string, any>, options?: import("./parseUrl").ParseOptions) => string;
+- `toUrl`: (url: string, queryParams: StringifiableRecord, options?: .ParseOptions) => string;
 - `warning`: (...messages: any[]) => void;

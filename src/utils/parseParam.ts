@@ -1,9 +1,9 @@
 /* eslint-disable no-script-url */
 /* eslint-disable prefer-template */
-import { ParsedQuery } from 'query-string'
-import parseUrl, { XParseOptions } from './parseUrl'
+import { ParsedQuery, ParseOptions } from 'query-string'
+import parseUrl from './parseUrl'
 
-const parseParam = (queryString: string, options?: XParseOptions): ParsedQuery => {
+const parseParam = (queryString: string, options?: ParseOptions): ParsedQuery => {
   if (queryString && typeof queryString === 'string') {
     const fakerUrl = '?' + queryString.replace(/^[?&]*/g, '')
     const { query } = parseUrl(fakerUrl, options)
