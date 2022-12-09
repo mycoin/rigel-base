@@ -17,32 +17,43 @@
  * ```
  * @returns
  */
-class Deferred<T = any> extends Promise<T> {
-  resolve: (value: T | PromiseLike<T>) => void
+type Finally<T> = (onfinally?: (() => void) | undefined | null) => Promise<T>
+type Catch<T> = (onrejected?: ((reason: Error) => T | PromiseLike<T>) | undefined | null) => Promise<T>
+type Then<T> = (
+  onfulfilled?: ((value: T) => T | PromiseLike<T>) | undefined | null,
+  onrejected?: ((reason: Error) => T | PromiseLike<T>) | undefined | null,
+) => Promise<T>
 
-  reject: (reason?: Error) => void
+class Deferred<T = any> {
+  public then: Then<T>
 
-  done: (
-    onfulfilled?: ((value: T) => T | PromiseLike<T>) | undefined | null,
-    onrejected?: ((reason: Error) => T | PromiseLike<T>) | undefined | null,
-  ) => Promise<T>
+  public done: Then<T>
 
-  fail: (onrejected?: ((reason: Error) => T | PromiseLike<T>) | undefined | null) => Promise<T>
+  public catch: Catch<T>
+
+  public fail: Catch<T>
+
+  public finally: Finally<T>
+
+  public always: Finally<T>
+
+  public resolve: (value: T | PromiseLike<T>) => void
+
+  public reject: (reason?: Error) => void
 
   constructor() {
-    let innerResolve
-    let innerReject
-    super((resolve, reject) => {
-      innerResolve = resolve
-      innerReject = reject
+    const promise = new Promise((resolve, reject) => {
+      this.resolve = resolve
+      this.reject = reject
     })
 
-    this.resolve = innerResolve
-    this.reject = innerReject
+    this.then = promise.then.bind(promise)
+    this.catch = promise.catch.bind(promise)
+    this.finally = promise.finally.bind(promise)
 
-    /* jQuery Deferred like */
-    this.done = this.then.bind(this)
-    this.fail = this.catch.bind(this)
+    this.done = this.then
+    this.fail = this.catch
+    this.always = this.finally
   }
 }
 
