@@ -2,6 +2,7 @@ import classNames from './classNames'
 import compose from './compose'
 import executeSafe from './executeSafe'
 import format from './format'
+import formatDate from './formatDate'
 import getGuid from './getGuid'
 import getNumberValue from './getNumberValue'
 import hashCode from './hashCode'
@@ -20,6 +21,7 @@ export default {
   compose,
   executeSafe,
   format,
+  formatDate,
   getGuid,
   getNumberValue,
   hashCode,
