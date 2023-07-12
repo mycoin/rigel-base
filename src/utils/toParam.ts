@@ -1,18 +1,20 @@
-/* eslint-disable no-script-url */
-/* eslint-disable prefer-template */
 import queryString, { StringifyOptions } from 'query-string'
-import { defaultOptions } from './toUrl'
 
 interface XStringifyOptions extends StringifyOptions {
-  skipNull: boolean
-  skipEmptyString: boolean
-  sort: false
+  fragmentIdentifier?: string
+  sort?: false
+}
+
+const defaultOptions: Partial<XStringifyOptions> = {
+  skipNull: true,
+  skipEmptyString: true,
+  sort: false,
 }
 
 /**
  * Stringify an object into a query string without sort the keys.
  */
-const toParam = (queryParams: Record<string, any>, options?: XStringifyOptions): string => {
+const toParam = (queryParams: Record<string, any>, options?: XStringifyOptions) => {
   return queryString.stringify(queryParams, {
     ...defaultOptions,
     ...options,
@@ -20,4 +22,4 @@ const toParam = (queryParams: Record<string, any>, options?: XStringifyOptions):
 }
 
 export default toParam
-export { XStringifyOptions }
+export { defaultOptions, XStringifyOptions }

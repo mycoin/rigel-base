@@ -1,17 +1,5 @@
-/* eslint-disable no-script-url */
-/* eslint-disable prefer-template */
-import queryString, { StringifyOptions, StringifiableRecord, UrlObject } from 'query-string'
-
-interface XStringifyOptions extends StringifyOptions {
-  fragmentIdentifier?: string
-  sort: false
-}
-
-const defaultOptions = {
-  skipNull: true,
-  skipEmptyString: true,
-  sort: false,
-}
+import queryString, { StringifiableRecord, UrlObject } from 'query-string'
+import { defaultOptions, XStringifyOptions } from './toParam'
 
 const toUrl = (url: string, queryParams: StringifiableRecord, options?: XStringifyOptions): string => {
   const { fragmentIdentifier, ...otherOptions } = {
@@ -28,8 +16,3 @@ const toUrl = (url: string, queryParams: StringifiableRecord, options?: XStringi
 }
 
 export default toUrl
-export {
-  /**/
-  XStringifyOptions,
-  defaultOptions,
-}

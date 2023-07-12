@@ -6,4 +6,12 @@ import Middleware from './Middleware'
 import universalEnv from './universalEnv'
 import utils from './utils'
 
-export { EventEmitter, Queue, Deferred, Middleware, universalEnv, utils }
+export {
+  /**/
+  EventEmitter,
+  Queue,
+  Deferred,
+  Middleware,
+  universalEnv,
+  utils,
+}
