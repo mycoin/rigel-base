@@ -12,8 +12,9 @@
     "prepublishOnly": "npm run build && npm test"
   },
   "files": [
-    "dist",
-    "typings",
+    "dist/",
+    "scss/",
+    "typings/",
     "package.json",
     "README.md"
   ],
