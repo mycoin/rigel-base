@@ -14,12 +14,11 @@ const defaultOptions: Partial<XStringifyOptions> = {
 /**
  * Stringify an object into a query string without sort the keys.
  */
-const toParam = (queryParams: Record<string, any>, options?: XStringifyOptions) => {
+export default (queryParams: Record<string, any>, options?: XStringifyOptions) => {
   return queryString.stringify(queryParams, {
     ...defaultOptions,
     ...options,
   })
 }
 
-export default toParam
 export { defaultOptions, XStringifyOptions }

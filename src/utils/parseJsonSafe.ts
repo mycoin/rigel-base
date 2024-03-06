@@ -1,14 +1,14 @@
 /**
- * 较为安全的JSON解析方法
+ *A relatively secure JSON parsing method
  *
- * 1. 如果本来就是Object类型直接返回
- * 2. 如果解析失败返回兜底参数
+ *1 If it is originally an Object type and returns directly
+ *2 If parsing fails, return a fallback parameter
  *
- * @param contentString
- * @param defaultValue
- * @returns
+ *@ param contentString
+ *@ param defaultValue
+ *@ returns
  */
-const parseJsonSafe = (contentString: string, defaultValue?: any) => {
+export default (contentString: string, defaultValue?: any) => {
   try {
     if (contentString && typeof contentString === 'object') {
       return contentString
@@ -18,5 +18,3 @@ const parseJsonSafe = (contentString: string, defaultValue?: any) => {
     return defaultValue
   }
 }
-
-export default parseJsonSafe

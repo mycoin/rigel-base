@@ -6,23 +6,22 @@ const encodeHTML = (source: string): string => {
     .replace(/'/g, '&#39;')
 }
 
-const format = (tplString: string, dataMap: Record<string, any>): string => {
-  const dataFrom = dataMap && typeof dataMap === 'object' ? dataMap : {}
+export default (tpl: string, dataMap: Record<string, any>): string => {
+  const data = dataMap && typeof dataMap === 'object' ? dataMap : {}
 
-  if (typeof tplString !== 'string') {
+  if (typeof tpl === 'string') {
+    return tpl.replace(/\{(=|:)?(\w*)\}/g, (_: any, type: string, key: string) => {
+      if (data[key] === undefined || data[key] === null) {
+        return ''
+      } else if (type === '=') {
+        return data[key]
+      } else if (type === ':') {
+        return encodeURIComponent(data[key])
+      } else {
+        return encodeHTML(data[key])
+      }
+    })
+  } else {
     return ''
   }
-  return String(tplString).replace(/\{(=|:)?(\w*)\}/g, (_: any, type: string, key: string) => {
-    if (dataFrom[key] === undefined || dataFrom[key] === null) {
-      return ''
-    } else if (type === '=') {
-      return dataFrom[key]
-    } else if (type === ':') {
-      return encodeURIComponent(dataFrom[key])
-    } else {
-      return encodeHTML(dataFrom[key])
-    }
-  })
 }
-
-export default format

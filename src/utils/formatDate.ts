@@ -4,7 +4,10 @@ const formats: Record<string, string> = {
 }
 
 const pad = (num: number) => (num < 10 ? '0' + num : num)
-const formatDate = (date: Date | number, patternStr?: 'short' | 'long' | string) => {
+/**
+ * date formatting
+ */
+export default (date: Date | number, patternStr?: keyof typeof formats | string) => {
   const dt = new Date(date)
   if (isNaN(dt.getTime())) {
     return null
@@ -25,5 +28,3 @@ const formatDate = (date: Date | number, patternStr?: 'short' | 'long' | string)
     return acc.replace(replace, target)
   }, result)
 }
-
-export default formatDate

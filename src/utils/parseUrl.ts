@@ -11,7 +11,7 @@ const defaultParseOptions = {
  *
  * @param url - The URL to parse.
  */
-const parseUrl = (url: string, options?: ParseOptions): ParsedUrl => {
+export default (url: string, options?: ParseOptions): ParsedUrl => {
   const parseOptions = {
     ...defaultParseOptions,
     ...options,
@@ -42,5 +42,3 @@ const parseUrl = (url: string, options?: ParseOptions): ParsedUrl => {
 
   return parsedUrl
 }
-
-export default parseUrl

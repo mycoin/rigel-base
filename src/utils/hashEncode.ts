@@ -10,7 +10,7 @@ const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
  * @param {String} source The string to Calculated
  * @return {String} result
  */
-const hashEncode = (source: string): string => {
+export default (source: string): string => {
   const hashNumber = hashCode(source)
   if (hashNumber === 0) {
     return '0'
@@ -25,4 +25,3 @@ const hashEncode = (source: string): string => {
   }
   return result
 }
-export default hashEncode

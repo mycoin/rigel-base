@@ -1,4 +1,4 @@
-const observe = (object: any, keyName: string, callback: (prev: any, next: any) => void): void => {
+export default <P = any>(object: any, keyName: string, callback: (prev: P, next: P) => void): void => {
   let prev = object[keyName]
 
   Object.defineProperty(object, keyName, {
@@ -14,5 +14,3 @@ const observe = (object: any, keyName: string, callback: (prev: any, next: any) 
     },
   })
 }
-
-export default observe

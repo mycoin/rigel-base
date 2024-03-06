@@ -13,7 +13,7 @@
  * (...args) => f(g(h(...args))).
  * ```
  */
-const compose = (...funcs: Function[]): Function => {
+export default (...funcs: Function[]): Function => {
   if (funcs.length === 0) {
     return (arg: any) => arg
   }
@@ -30,5 +30,3 @@ const compose = (...funcs: Function[]): Function => {
   const rest = funcs.slice(0, -1)
   return (...args: any[]) => rest.reduceRight((composed, f) => f(composed), last(...args))
 }
-
-export default compose

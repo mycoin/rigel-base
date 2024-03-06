@@ -5,7 +5,7 @@
  * @param {Any} params
  * @returns
  */
-const isMatches = (handle: RegExp | Function | any[], params: any) => {
+export default (handle: RegExp | Function | any[], params: any) => {
   if (params === null || params === undefined) {
     return false
   }
@@ -20,5 +20,3 @@ const isMatches = (handle: RegExp | Function | any[], params: any) => {
 
   throw new TypeError('invalid handle.')
 }
-
-export default isMatches

@@ -1,22 +1,3 @@
-/**
- * jQuery Deferred like Modular and fast Promises/Deferred implementation
- * e.g.
- * ```
- * const deferred = new Deferred() // or Deferred()
- *
- * deferred.then(function(value) {
- *   console.log('resolved value:', value)
- * }).catch(function(error) {
- *   console.log('rejected error:', error)
- * })
- *
- * // later...
- * setTimeout( function(){
- *    deferred.resolve()
- * }, 1500)
- * ```
- * @returns
- */
 type Finally<T> = (onfinally?: (() => void) | undefined | null) => Promise<T>
 type Catch<T> = (onrejected?: ((reason: Error) => T | PromiseLike<T>) | undefined | null) => Promise<T>
 type Then<T> = (
@@ -24,7 +5,26 @@ type Then<T> = (
   onrejected?: ((reason: Error) => T | PromiseLike<T>) | undefined | null,
 ) => Promise<T>
 
-class Deferred<T = any> {
+/**
+ * jQuery Deferred like Modular and fast Promises/Deferred implementation
+ * e.g.
+ * ```
+ * const deferred = new Deferred() // or Deferred()
+ *
+ * deferred.then((value) => {
+ *   console.log('resolved value:', value)
+ * }).catch((error) => {
+ *   console.log('rejected error:', error)
+ * })
+ *
+ * // later...
+ * setTimeout(() => {
+ *    deferred.resolve()
+ * })
+ * ```
+ * @returns
+ */
+export default class Deferred<T = any> {
   public then: Then<T>
 
   public done: Then<T>
@@ -56,5 +56,3 @@ class Deferred<T = any> {
     this.always = this.finally
   }
 }
-
-export default Deferred

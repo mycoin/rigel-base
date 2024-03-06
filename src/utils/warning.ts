@@ -1,14 +1,12 @@
 import universalEnv from '../universalEnv'
 
 /**
- * 打印警告信息
+ * print warning message
  *
  * @param messages
  */
-const warning = (...messages: any[]): void => {
+export default (...messages: any[]): void => {
   if (universalEnv.isDevelopment || universalEnv.isDebugger) {
     console.warn(...messages)
   }
 }
-
-export default warning

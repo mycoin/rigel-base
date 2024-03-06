@@ -10,7 +10,7 @@ const defaultOptions = {
   roundUp: true,
 }
 
-const getNumberValue = (value: any, opts?: GetNumberValueOption): number | null => {
+export default (value: any, opts?: GetNumberValueOption): number | null => {
   const number = parseFloat(value)
   const options = {
     ...defaultOptions,
@@ -36,5 +36,4 @@ const getNumberValue = (value: any, opts?: GetNumberValueOption): number | null 
   return result
 }
 
-export default getNumberValue
 export { GetNumberValueOption }

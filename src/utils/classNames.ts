@@ -1,4 +1,4 @@
-function toVal(mix: any) {
+const toVal = (mix: any) => {
   let k
   let y
   let str = ''
@@ -27,17 +27,15 @@ function toVal(mix: any) {
   return str
 }
 
-function classNames(): string {
+export default (...args: any[]) => {
   let i = 0
   let x
   let str = ''
-  while (i < arguments.length) {
-    if ((x = toVal(arguments[i++]))) {
+  while (i < args.length) {
+    if ((x = toVal(args[i++]))) {
       str && (str += ' ')
       str += x
     }
   }
   return str
 }
-
-export default classNames

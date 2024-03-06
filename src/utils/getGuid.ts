@@ -3,7 +3,7 @@ let IDX = 36
 let HEX = ''
 while (IDX--) HEX += IDX.toString(36)
 
-const getGuid = (param?: string | number): string => {
+export default (param?: string | number): string => {
   if (typeof param === 'number') {
     let str = ''
     let len = Math.abs(param) || 11
@@ -21,5 +21,3 @@ const getGuid = (param?: string | number): string => {
     })
   }
 }
-
-export default getGuid

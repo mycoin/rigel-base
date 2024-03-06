@@ -1,25 +1,24 @@
-/**
- * Calculate the hash for a string.
- *
- * @public
- *
- * @param {String} source The string to Calculated
- * @return {Number} result
- */
-const hashCode = (source: string): number => {
-  let hash = 1
-  let code = 0
-
-  if (source === undefined || source === null) {
-    return hash
-  }
-  for (let i = source.length - 1; i >= 0; i--) {
-    code = source.charCodeAt(i)
-    hash = ((hash << 6) & 268435455) + code + (code << 14)
-    code = hash & 266338304
-    hash = code !== 0 ? hash ^ (code >> 21) : hash
-  }
-  return hash
+function convertToStr(value: any) {
+  return value == null ? '' : value.toString()
 }
+/**
+ * based on string passed, get the integer hash value
+ * through bitwise operation (based on spinoff of `DBJ2`
+ * with enhancements for reduced collisions)
+ */
+export default (object: string) => {
+  const string = convertToStr(object)
 
-export default hashCode
+  let index = string.length
+  let hashA = 5381
+  let hashB = 52711
+  let charCode
+
+  while (index--) {
+    charCode = string.charCodeAt(index)
+
+    hashA = (hashA * 33) ^ charCode
+    hashB = (hashB * 33) ^ charCode
+  }
+  return (hashA >>> 0) * 4096 + (hashB >>> 0)
+}

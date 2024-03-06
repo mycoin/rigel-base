@@ -1,6 +1,6 @@
 import warning from './warning'
 
-const executeSafe = (method: () => any, defaultValue?: any): any => {
+export default <T = any>(method: () => T, defaultValue?: T): T => {
   try {
     if (typeof method === 'function') {
       return method()
@@ -10,5 +10,3 @@ const executeSafe = (method: () => any, defaultValue?: any): any => {
   }
   return defaultValue
 }
-
-export default executeSafe
