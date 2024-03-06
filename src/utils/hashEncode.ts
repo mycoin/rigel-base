@@ -7,11 +7,11 @@ const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
  *
  * @public
  *
- * @param {String} source The string to Calculated
+ * @param {String} object The object to Calculated
  * @return {String} result
  */
-export default (source: string): string => {
-  const hashNumber = hashCode(source)
+export default (object: any): string => {
+  const hashNumber = hashCode(object)
   if (hashNumber === 0) {
     return '0'
   }

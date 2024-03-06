@@ -6,7 +6,7 @@ function convertToStr(value: any) {
  * through bitwise operation (based on spinoff of `DBJ2`
  * with enhancements for reduced collisions)
  */
-export default (object: string) => {
+export default (object: any) => {
   const string = convertToStr(object)
 
   let index = string.length
