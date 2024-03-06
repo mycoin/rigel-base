@@ -6,7 +6,6 @@ const toUrl = (url: string, queryParams: StringifiableRecord, options?: XStringi
     ...defaultOptions,
     ...options,
   }
-
   const urlObject: UrlObject = {
     url: url || '',
     query: queryParams,

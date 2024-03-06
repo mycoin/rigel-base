@@ -1,17 +1,7 @@
-import EventEmitter from 'events'
-import Queue from 'queue'
+export { default as Deferred } from './Deferred'
+export { default as Middleware } from './Middleware'
+export { default as universalEnv } from './universalEnv'
+export { default as Queue } from 'queue'
+export { default as EventEmitter } from 'events'
 
-import Deferred from './Deferred'
-import Middleware from './Middleware'
-import universalEnv from './universalEnv'
-import utils from './utils'
-
-export {
-  /**/
-  EventEmitter,
-  Queue,
-  Deferred,
-  Middleware,
-  universalEnv,
-  utils,
-}
+export * as utils from './utils'

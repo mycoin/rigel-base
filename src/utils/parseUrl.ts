@@ -1,5 +1,3 @@
-/* eslint-disable no-script-url */
-/* eslint-disable prefer-template */
 import queryString, { ParsedUrl, ParseOptions } from 'query-string'
 
 const defaultParseOptions = {
@@ -24,7 +22,7 @@ const parseUrl = (url: string, options?: ParseOptions): ParsedUrl => {
     if (Array.isArray(value)) {
       return value.map(traverse)
     } else if (value && typeof value === 'string') {
-      if (parseBooleans && ['true', 'false'].includes(value.toLowerCase())) {
+      if (parseBooleans && ['true', 'false'].indexOf(value.toLowerCase()) > -1) {
         return value.toLowerCase() === 'true'
       } else if (parseNumbers && !Number.isNaN(Number(value))) {
         return Number(value) > Number.MAX_SAFE_INTEGER ? value : Number(value)

@@ -1,6 +1,4 @@
-type Callback = (prev: any, next: any) => void
-
-const observe = (object: any, keyName: string, callback: Callback): void => {
+const observe = (object: any, keyName: string, callback: (prev: any, next: any) => void): void => {
   let prev = object[keyName]
 
   Object.defineProperty(object, keyName, {

@@ -1,7 +1,3 @@
-/* eslint-disable no-bitwise */
-/* eslint-disable no-mixed-operators */
-/* eslint-disable no-plusplus */
-/* eslint-disable prefer-template */
 /**
  * Calculate the hash for a string.
  *
