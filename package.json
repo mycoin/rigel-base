@@ -1,6 +1,6 @@
 {
   "name": "rigel-base",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "rigel base utils.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
